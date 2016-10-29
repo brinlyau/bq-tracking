@@ -4336,8 +4336,9 @@ static int synaptics_rmi4_suspend(struct device *dev)
 	struct synaptics_rmi4_exp_fhandler *exp_fhandler;
 	struct synaptics_rmi4_data *rmi4_data = dev_get_drvdata(dev);
 
-	if (rmi4_data->stay_awake || rmi4_data->suspend)
-		return 0;
+	if (rmi4_data->stay_awake || rmi4_data->suspend){
+           return 0;
+        }
 
 	if (rmi4_data->enable_wakeup_gesture) {
 		no_sleep_in(rmi4_data,true);
@@ -4376,8 +4377,9 @@ static int synaptics_rmi4_resume(struct device *dev)
 	struct synaptics_rmi4_exp_fhandler *exp_fhandler;
 	struct synaptics_rmi4_data *rmi4_data = dev_get_drvdata(dev);
 
-	if (rmi4_data->stay_awake || !rmi4_data->suspend)
-		return 0;
+	if (rmi4_data->stay_awake || !rmi4_data->suspend){
+            return 0;
+        }
 
 	if (rmi4_data->enable_wakeup_gesture) {
 		no_sleep_in(rmi4_data,false);
